@@ -1,8 +1,9 @@
 package iteration
 
-func Repeat(char string)  string{
-	for i := 0; i < 2; i++{
-		char +=  char
+func Repeat(char string,timesToRepeat int)  string{
+	var repeated string
+	for i := 0; i < 4; i++{
+		repeated +=  char
 	}
-	return char
+	return repeated
 }
