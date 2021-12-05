@@ -1,6 +1,5 @@
 package main
 
-import "fmt"
 
 func Sum(numbers []int) int{
 	var sum int;
@@ -10,7 +9,6 @@ func Sum(numbers []int) int{
 	return sum
 }
 func SumAll(slicesToSum ...[]int) []int{
-	fmt.Println("checkckckckck")
 	slice := []int{}
 
 	for _,v := range slicesToSum{
@@ -21,6 +19,23 @@ func SumAll(slicesToSum ...[]int) []int{
 
 		slice = append(slice,sum )
 
+	}
+	return slice
+}
+
+func SumAllTails(slicesToSum ...[]int)[]int{
+	slice := []int{}
+
+	for _,v := range slicesToSum{
+		
+		var sum int
+		for  index, value := range v {
+			if index == 0{
+			continue
+		}
+			sum += value
+		}
+		slice = append(slice,sum )
 	}
 	return slice
 }
