@@ -1,6 +1,7 @@
 package structs
 
 import (
+	"fmt"
 	"testing"
 )
 
@@ -26,9 +27,7 @@ func TestPerimeter(t *testing.T){
 		if got != want {
 			t.Errorf("got %.2f but expected %.2f", got, want)
 		}
-	})
-
-	
+	})	
 }
 
 func TestArea(t *testing.T){
@@ -55,6 +54,18 @@ func TestArea(t *testing.T){
 		circle := Circle{10}
         want := 314.1592653589793
 		checkArea(t,circle,want)
-
 	})
+}
+
+func BenchmarkPerimeter(b *testing.B){
+	rectangle := Rectangle{10.0,10.0}
+	for i := 0; i < b.N; i++ {
+		Perimeter(rectangle)
+	}
+}
+
+func ExamplePerimeter(){
+	rectangle := Rectangle{10.0,10.0}
+	fmt.Println(Perimeter(rectangle))
+	//Output: 40
 }
